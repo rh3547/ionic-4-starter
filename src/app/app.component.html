@@ -1,0 +1,53 @@
+<ion-app>
+
+  <!-- Page Loader -->
+  <div class="page-loader" *ngIf="loading">
+    <div class="spinner lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+  </div>
+  <!-- End Page Loader -->
+
+  <!-- Content -->
+  <ion-split-pane>
+
+    <!-- Side Menu -->
+    <ion-menu [hidden]="!showSidebar" class="dash-menu">
+      <ion-header>
+        <ion-toolbar>
+          <ion-title class="font-brand">Ionic 4 Starter</ion-title>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content>
+        <ion-list>
+          <!-- Dynamically add the menu options -->
+          <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages">
+            <ion-item [routerDirection]="'root'" [routerLink]="[p.url]" routerLinkActive="active">
+              <ion-icon slot="start" [name]="p.icon"></ion-icon>
+              <ion-label>
+                {{p.title}}
+              </ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+
+          <!-- Manually add the logout button -->
+          <ion-menu-toggle auto-hide="false">
+            <ion-item class="pointer" (click)="logout()">
+              <ion-icon slot="start" [name]="'ios-exit'"></ion-icon>
+              <ion-label>
+                Logout
+              </ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+
+        </ion-list>
+      </ion-content>
+    </ion-menu>
+    <!-- End Side Menu -->
+
+    <!-- Router Outlet -->
+    <ion-router-outlet main></ion-router-outlet>
+    <!-- End Router Outlet -->
+
+  </ion-split-pane>
+  <!-- End Content -->
+
+</ion-app>

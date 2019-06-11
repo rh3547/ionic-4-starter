@@ -1,0 +1,392 @@
+
+
+
+//=============================================================================== [ General Variables ]
+//
+$prefix: "app";
+$class-loop-max: 100;
+
+
+
+//=============================================================================== [ Colors ]
+//
+$colors: (
+  primary: #1F3976,
+  primary-rgb: "31, 57, 118",
+  primary-contrast: #ffffff,
+  primary-contrast-rgb: "255, 255, 255",
+  primary-shade: #182f63,
+  primary-tint: #2d4d97,
+  primary-light: #F2F6FF,
+
+  secondary: #62AFA3,
+  secondary-rgb: "98, 175, 163",
+  secondary-contrast: #ffffff,
+  secondary-contrast-rgb: "255, 255, 255",
+  secondary-shade: #549c91,
+  secondary-tint: #71cabd,
+
+  accent : #F4CD2d,
+  accent-rgb: "244, 205, 45",
+  accent-contrast: #ffffff,
+  accent-contrast-rgb: "255, 255, 255",
+  accent-shade: #e4bc1b,
+  accent-tint: #f5da6d,
+
+  dark: #222428,
+  dark-rgb: "34, 34, 34",
+  dark-contrast: #ffffff,
+  dark-contrast-rgb: "255, 255, 255",
+  dark-shade: #1e2023,
+  dark-tint: #383a3e,
+
+  medium: #989aa2,
+  medium-rgb: "152, 154, 162",
+  medium-contrast: #ffffff,
+  medium-contrast-rgb: "255, 255, 255",
+  medium-shade: #86888f,
+  medium-tint: #a2a4ab,
+
+  light: #f4f5f8,
+  light-rgb: "244, 244, 244",
+  light-contrast: #000000,
+  light-contrast-rgb: "0, 0, 0",
+  light-shade: #d7d8da,
+  light-tint: #f5f6f9,
+
+  darkgrey: #5F5F5F,
+  grey: #ADADAD,
+  lightgrey: #E2E2E2,
+  ultralight: #F8F8F8,
+  white: #FFFFFF,
+  black: #000000,
+
+  success: #10dc60,
+  success-rgb: "16, 220, 96",
+  success-contrast: #ffffff,
+  success-contrast-rgb: "255, 255, 255",
+  success-shade: #0ec254,
+  success-tint: #28e070,
+
+  warning: #ffce00,
+  warning-rgb: "255, 206, 0",
+  warning-contrast: #ffffff,
+  warning-contrast-rgb: "255, 255, 255",
+  warning-shade: #e0b500,
+  warning-tint: #ffd31a,
+
+  danger: #f04141,
+  danger-rgb: "245, 61, 61",
+  danger-contrast: #ffffff,
+  danger-contrast-rgb: "255, 255, 255",
+  danger-shade: #d33939,
+  danger-tint: #f25454
+);
+
+
+
+//=============================================================================== [ Fonts ]
+//
+@import url('https://fonts.googleapis.com/css?family=Rubik:400,700');
+@import url("https://use.typekit.net/wwd6azl.css");
+
+$fonts: (
+  brand-family: 'Rubik',
+  brand-size: 40px,
+  brand-weight: 700,
+  brand-transform: uppercase,
+
+  heading-family: 'museo-sans',
+
+  h1-family: 'museo-sans',
+  h1-size: 34px,
+  h1-weight: 700,
+  h1-transform: none,
+
+  h2-family: 'museo-sans',
+  h2-size: 28px,
+  h2-weight: 700,
+  h2-transform: none,
+
+  h3-family: 'museo-sans',
+  h3-size: 24px,
+  h3-weight: 700,
+  h3-transform: none,
+
+  h4-family: 'museo-sans',
+  h4-size: 20px,
+  h4-weight: 700,
+  h4-transform: none,
+
+  h5-family: 'museo-sans',
+  h5-size: 18px,
+  h5-weight: 700,
+  h5-transform: none,
+
+  h6-family: 'museo-sans',
+  h6-size: 14px,
+  h6-weight: 700,
+  h6-transform: none,
+
+  body-family: 'Rubik',
+  body-size: 16px,
+  body-weight: 400,
+  body-transform: none,
+
+  bodybold-family: 'Rubik',
+  bodybold-size: 16px,
+  bodybold-weight: 700,
+  bodybold-transform: none,
+
+  btn-family: 'museo-sans',
+  btn-size: 18px,
+  btn-weight: 700,
+  btn-transform: none
+);
+
+
+
+//=============================================================================== [ Breakpoints ]
+//
+$breakpoints: (
+    xs: 440px,
+    s: 767px,
+    m: 992px,
+    l: 1200px,
+    xl: 1350px
+);
+
+
+
+:root {
+  // Primary
+  --color-primary: map-get($colors, primary);
+  --color-primary-rgb: map-get($colors, primary-rgb);
+  --color-primary-contrast: map-get($colors, primary-contrast);
+  --color-primary-contrast-rgb: map-get($colors, primary-contrast-rgb);
+  --color-primary-shade: map-get($colors, primary-shade);
+  --color-primary-tint: map-get($colors, primary-tint);
+  --color-primary-light: map-get($colors, primary-light);
+
+  // Secondary
+  --color-secondary: map-get($colors, secondary);
+  --color-secondary-rgb: map-get($colors, secondary-rgb);
+  --color-secondary-contrast: map-get($colors, secondary-contrast);
+  --color-secondary-contrast-rgb: map-get($colors, secondary-contrast-rgb);
+  --color-secondary-shade: map-get($colors, secondary-shade);
+  --color-secondary-tint: map-get($colors, secondary-tint);
+  --color-secondary-light: map-get($colors, secondary-light);
+
+  // Accent
+  --color-accent: map-get($colors, accent);
+  --color-accent-rgb: map-get($colors, accent-rgb);
+  --color-accent-contrast: map-get($colors, accent-contrast);
+  --color-accent-contrast-rgb: map-get($colors, accent-contrast-rgb);
+  --color-accent-shade: map-get($colors, accent-shade);
+  --color-accent-tint: map-get($colors, accent-tint);
+  --color-accent-light: map-get($colors, accent-light);
+
+  // Dark
+  --color-dark: map-get($colors, dark);
+  --color-dark-rgb: map-get($colors, dark-rgb);
+  --color-dark-contrast: map-get($colors, dark-contrast);
+  --color-dark-contrast-rgb: map-get($colors, dark-contrast-rgb);
+  --color-dark-shade: map-get($colors, dark-shade);
+  --color-dark-tint: map-get($colors, dark-tint);
+  --color-dark-light: map-get($colors, dark-light);
+
+  // Medium
+  --color-medium: map-get($colors, medium);
+  --color-medium-rgb: map-get($colors, medium-rgb);
+  --color-medium-contrast: map-get($colors, medium-contrast);
+  --color-medium-contrast-rgb: map-get($colors, medium-contrast-rgb);
+  --color-medium-shade: map-get($colors, medium-shade);
+  --color-medium-tint: map-get($colors, medium-tint);
+  --color-medium-light: map-get($colors, medium-light);
+
+  // Light
+  --color-light: map-get($colors, light);
+  --color-light-rgb: map-get($colors, light-rgb);
+  --color-light-contrast: map-get($colors, light-contrast);
+  --color-light-contrast-rgb: map-get($colors, light-contrast-rgb);
+  --color-light-shade: map-get($colors, light-shade);
+  --color-light-tint: map-get($colors, light-tint);
+  --color-light-light: map-get($colors, light-light);
+
+  // Neutrals
+  --color-darkgrey: #5F5F5F;
+  --color-grey: #ADADAD;
+  --color-lightgrey: #E2E2E2;
+  --color-ultralight: #F8F8F8;
+  --color-white: #FFFFFF;
+  --color-black: #000000;
+
+  // Success
+  --color-success: map-get($colors, success);
+  --color-success-rgb: map-get($colors, success-rgb);
+  --color-success-contrast: map-get($colors, success-contrast);
+  --color-success-contrast-rgb: map-get($colors, success-contrast-rgb);
+  --color-success-shade: map-get($colors, success-shade);
+  --color-success-tint: map-get($colors, success-tint);
+  --color-success-light: map-get($colors, success-light);
+
+  // Warning
+  --color-warning: map-get($colors, warning);
+  --color-warning-rgb: map-get($colors, warning-rgb);
+  --color-warning-contrast: map-get($colors, warning-contrast);
+  --color-warning-contrast-rgb: map-get($colors, warning-contrast-rgb);
+  --color-warning-shade: map-get($colors, warning-shade);
+  --color-warning-tint: map-get($colors, warning-tint);
+  --color-warning-light: map-get($colors, warning-light);
+
+  // Danger
+  --color-danger: map-get($colors, danger);
+  --color-danger-rgb: map-get($colors, danger-rgb);
+  --color-danger-contrast: map-get($colors, danger-contrast);
+  --color-danger-contrast-rgb: map-get($colors, danger-contrast-rgb);
+  --color-danger-shade: map-get($colors, danger-shade);
+  --color-danger-tint: map-get($colors, danger-tint);
+  --color-danger-light: map-get($colors, danger-light);
+
+
+
+  //=============================================================================== [ Fonts ]
+  //
+  /** Brand Font **/
+  --font-brand-family: map-get($fonts, brand-family);
+  --font-brand-size: map-get($fonts, brand-size);
+  --font-brand-weight: map-get($fonts, brand-weight);
+  --font-brand-transform: map-get($fonts, brand-transform);
+
+  /** Heading Font **/
+  --font-heading-family: map-get($fonts, heading-family);
+
+  // H1
+  --font-h1-family: map-get($fonts, h1-family);
+  --font-h1-size: map-get($fonts, h1-size);
+  --font-h1-weight: map-get($fonts, h1-weight);
+  --font-h1-transform: map-get($fonts, h1-transform);
+
+  // H2
+  --font-h2-family: map-get($fonts, h2-family);
+  --font-h2-size: map-get($fonts, h2-size);
+  --font-h2-weight: map-get($fonts, h2-weight);
+  --font-h2-transform: map-get($fonts, h2-transform);
+
+  // H3
+  --font-h3-family: map-get($fonts, h3-family);
+  --font-h3-size: map-get($fonts, h3-size);
+  --font-h3-weight: map-get($fonts, h3-weight);
+  --font-h3-transform: map-get($fonts, h3-transform);
+
+  // H4
+  --font-h4-family: map-get($fonts, h4-family);
+  --font-h4-size: map-get($fonts, h4-size);
+  --font-h4-weight: map-get($fonts, h4-weight);
+  --font-h4-transform: map-get($fonts, h4-transform);
+
+  // H5
+  --font-h5-family: map-get($fonts, h5-family);
+  --font-h5-size: map-get($fonts, h5-size);
+  --font-h5-weight: map-get($fonts, h5-weight);
+  --font-h5-transform: map-get($fonts, h5-transform);
+
+  // H6
+  --font-h6-family: map-get($fonts, h6-family);
+  --font-h6-size: map-get($fonts, h6-size);
+  --font-h6-weight: map-get($fonts, h6-weight);
+  --font-h6-transform: map-get($fonts, h6-transform);
+
+  /** Body Font **/
+  --font-body-family: map-get($fonts, body-family);
+  --font-body-size: map-get($fonts, body-size);
+  --font-body-weight: map-get($fonts, body-weight);
+  --font-body-transform: map-get($fonts, body-transform);
+
+  --font-bodybold-family: map-get($fonts, bodybold-family);
+  --font-bodybold-size: map-get($fonts, bodybold-size);
+  --font-bodybold-weight: map-get($fonts, bodybold-weight);
+  --font-bodybold-transform: map-get($fonts, bodybold-transform);
+
+  /** Button Font **/
+  --font-btn-family: map-get($fonts, btn-family);
+  --font-btn-size: map-get($fonts, btn-size);
+  --font-btn-weight: map-get($fonts, btn-weight);
+  --font-btn-transform: map-get($fonts, btn-transform);
+
+
+
+  //=============================================================================== [ Ionic Variables ]
+  //
+  /** primary **/
+  --ion-color-primary: var(--color-primary);
+  --ion-color-primary-rgb: var(--color-primary-rgb);
+  --ion-color-primary-contrast: var(--color-primary-contrast);
+  --ion-color-primary-contrast-rgb: var(--color-primary-contrast-rgb);
+  --ion-color-primary-shade: var(--color-primary-shade);
+  --ion-color-primary-tint: var(--color-primary-tint);
+
+  /** secondary **/
+  --ion-color-secondary: var(--color-secondary);
+  --ion-color-secondary-rgb: var(--color-secondary-rgb);
+  --ion-color-secondary-contrast: var(--color-secondary-contrast);
+  --ion-color-secondary-contrast-rgb: var(--color-secondary-contrast-rgb);
+  --ion-color-secondary-shade: var(--color-secondary-shade);
+  --ion-color-secondary-tint: var(--color-secondary-tint);
+
+  /** tertiary **/
+  --ion-color-tertiary: var(--color-accent);
+  --ion-color-tertiary-rgb: var(--color-accent-rgb);
+  --ion-color-tertiary-contrast: var(--color-accent-contrast);
+  --ion-color-tertiary-contrast-rgb: var(--color-accent-contrast-rgb);
+  --ion-color-tertiary-shade: var(--color-accent-shade);
+  --ion-color-tertiary-tint: var(--color-accent-tint);
+
+  /** dark **/
+  --ion-color-dark: var(--color-dark);
+  --ion-color-dark-rgb: var(--color-dark-rgb);
+  --ion-color-dark-contrast: var(--color-dark-contrast);
+  --ion-color-dark-contrast-rgb: var(--color-dark-contrast-rgb);
+  --ion-color-dark-shade: var(--color-dark-shade);
+  --ion-color-dark-tint: var(--color-dark-tint);
+
+  /** medium **/
+  --ion-color-medium: var(--color-medium);
+  --ion-color-medium-rgb: var(--color-medium-rgb);
+  --ion-color-medium-contrast: var(--color-medium-contrast);
+  --ion-color-medium-contrast-rgb: var(--color-medium-contrast-rgb);
+  --ion-color-medium-shade: var(--color-medium-shade);
+  --ion-color-medium-tint: var(--color-medium-tint);
+
+  /** light **/
+  --ion-color-light: var(--color-light);
+  --ion-color-light-rgb: var(--color-light-rgb);
+  --ion-color-light-contrast: var(--color-light-contrast);
+  --ion-color-light-contrast-rgb: var(--color-light-contrast-rgb);
+  --ion-color-light-shade: var(--color-light-shade);
+  --ion-color-light-tint: var(--color-light-tint);
+
+  /** success **/
+  --ion-color-success: var(--color-success);
+  --ion-color-success-rgb: var(--color-success-rgb);
+  --ion-color-success-contrast: var(--color-success-contrast);
+  --ion-color-success-contrast-rgb: var(--color-success-contrast-rgb);
+  --ion-color-success-shade: var(--color-success-shade);
+  --ion-color-success-tint: var(--color-success-tint);
+
+  /** warning **/
+  --ion-color-warning: var(--color-warning);
+  --ion-color-warning-rgb: var(--color-warning-rgb);
+  --ion-color-warning-contrast: var(--color-warning-contrast);
+  --ion-color-warning-contrast-rgb: var(--color-warning-contrast-rgb);
+  --ion-color-warning-shade: var(--color-warning-shade);
+  --ion-color-warning-tint: var(--color-warning-tint);
+
+  /** danger **/
+  --ion-color-danger: var(--color-danger);
+  --ion-color-danger-rgb: var(--color-danger-rgb);
+  --ion-color-danger-contrast: var(--color-danger-contrast);
+  --ion-color-danger-contrast-rgb: var(--color-danger-contrast-rgb);
+  --ion-color-danger-shade: var(--color-danger-shade);
+  --ion-color-danger-tint: var(--color-danger-tint);
+}

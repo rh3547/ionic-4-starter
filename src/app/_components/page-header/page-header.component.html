@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      <h5 class="fg-primary">{{ title }}</h5>
+    </ion-title>
+
+    <div class="nav-right">
+      <p class="user-menu pointer">Welcome, John Doe<ion-icon name="arrow-dropdown"></ion-icon></p>
+      <div class="sep-vert-nav mr20 ml15"></div>
+      <div class="notification-icon-wrapper pointer">
+        <ion-icon name="notifications"></ion-icon>
+        <div class="notif-alert" *ngIf="notifications.length > 0"></div>
+      </div>
+      <div class="sep-vert-nav mr15 ml20 sep-2"></div>
+      <h6 class="current-date fg-primary date">{{ dateService.getTodaysDateDisplay() }}</h6>
+    </div>
+
+  </ion-toolbar>
+</ion-header>

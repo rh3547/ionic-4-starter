@@ -1,0 +1,26 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": "./",
+    "paths": {
+      "@root/*": ["./*"],
+      "@app/*": ["app/*"],
+      "@components/*": ["app/_components/*"],
+      "@directives/*": ["app/_directives/*"],
+      "@guards/*": ["app/_guards/*"],
+      "@models/*": ["app/_models/*"],
+      "@pages/*": ["app/_pages/*"],
+      "@pipes/*": ["app/_pipes/*"],
+      "@services/*": ["app/_services/*"],
+      "@environments/*": ["environments/*"],
+      "@assets/*": ["assets/*"],
+      "@theme/*": ["theme/*"],
+    },
+    "outDir": "../out-tsc/app",
+    "types": []
+  },
+  "exclude": [
+    "test.ts",
+    "**/*.spec.ts"
+  ]
+}

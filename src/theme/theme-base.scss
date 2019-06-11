@@ -1,0 +1,894 @@
+//=============================================================================== [ Color Styles ]
+//
+@each $name, $color in $colors {
+  .bg-#{$name} { background-color: #{$color} !important; --background: #{$color}; }
+  .fg-#{$name} { color: #{$color} !important; }
+  .bc-#{$name} { border-color: #{$color} !important; }
+}
+
+
+
+//=============================================================================== [ Typography Styles ]
+//
+@mixin font-brand {
+    font-family: map-get($fonts, brand-family);
+    font-size: map-get($fonts, brand-size);
+    font-weight: map-get($fonts, brand-weight);
+    text-transform: map-get($fonts, brand-transform);
+    --ion-font-family: #{map-get($fonts, brand-family)};
+}
+
+@mixin font-heading {
+    font-family: map-get($fonts, heading-family);
+    --ion-font-family: #{map-get($fonts, heading-family)};
+}
+
+@mixin font-h1 {
+    font-family: map-get($fonts, h1-family);
+    font-size: map-get($fonts, h1-size);
+    font-weight: map-get($fonts, h1-weight);
+    text-transform: map-get($fonts, h1-transform);
+    --ion-font-family: #{map-get($fonts, h1-family)};
+}
+
+@mixin font-h2 {
+    font-family: map-get($fonts, h2-family);
+    font-size: map-get($fonts, h2-size);
+    font-weight: map-get($fonts, h2-weight);
+    text-transform: map-get($fonts, h2-transform);
+    --ion-font-family: #{map-get($fonts, h2-family)};
+}
+
+@mixin font-h3 {
+    font-family: map-get($fonts, h3-family);
+    font-size: map-get($fonts, h3-size);
+    font-weight: map-get($fonts, h3-weight);
+    text-transform: map-get($fonts, h3-transform);
+    --ion-font-family: #{map-get($fonts, h3-family)};
+}
+
+@mixin font-h4 {
+    font-family: map-get($fonts, h4-family);
+    font-size: map-get($fonts, h4-size);
+    font-weight: map-get($fonts, h4-weight);
+    text-transform: map-get($fonts, h4-transform);
+    --ion-font-family: #{map-get($fonts, h4-family)};
+}
+
+@mixin font-h5 {
+    font-family: map-get($fonts, h5-family);
+    font-size: map-get($fonts, h5-size);
+    font-weight: map-get($fonts, h5-weight);
+    text-transform: map-get($fonts, h5-transform);
+    --ion-font-family: #{map-get($fonts, h5-family)};
+}
+
+@mixin font-h6 {
+    font-family: map-get($fonts, h6-family);
+    font-size: map-get($fonts, h6-size);
+    font-weight: map-get($fonts, h6-weight);
+    text-transform: map-get($fonts, h6-transform);
+    --ion-font-family: #{map-get($fonts, h6-family)};
+}
+
+@mixin font-body {
+    font-family: map-get($fonts, body-family);
+    font-size: map-get($fonts, body-size);
+    font-weight: map-get($fonts, body-weight);
+    text-transform: map-get($fonts, body-transform);
+    --ion-font-family: #{map-get($fonts, body-family)};
+}
+
+@mixin font-bodybold {
+    font-family: map-get($fonts, bodybold-family);
+    font-size: map-get($fonts, bodybold-size);
+    font-weight: map-get($fonts, bodybold-weight);
+    text-transform: map-get($fonts, bodybold-transform);
+    --ion-font-family: #{map-get($fonts, bodybold-family)};
+}
+
+@mixin font-btn {
+    font-family: map-get($fonts, btn-family);
+    font-size: map-get($fonts, btn-size);
+    font-weight: map-get($fonts, btn-weight);
+    text-transform: map-get($fonts, btn-transform);
+    --ion-font-family: #{map-get($fonts, btn-family)};
+}
+
+.font-brand { @include font-brand; }
+.font-heading { @include font-heading; }
+.font-body { @include font-body; }
+.font-bodybold { @include font-bodybold; }
+.font-nav { @include font-h6; }
+.font-btn { @include font-btn; }
+
+h1 { @include font-h1; }
+h2 { @include font-h2; }
+h3 { @include font-h3; }
+h4 { @include font-h4; }
+h5 { @include font-h5; }
+h6 { @include font-h6; }
+
+p, li, a, span, input, ion-item { @include font-body; } 
+p.bold, li.bold, a.bold, span.bold, label, ion-title { @include font-bodybold; }
+
+button { @include font-btn; }
+
+
+
+//=============================================================================== [ Position Styles ]
+//
+.static { position: static; }
+.absolute { position: absolute; }
+.relative { position: relative; }
+
+.float-left { float: left; }
+.float-right { float: right; }
+.float-none { float: none; }
+
+.hide { display: none; }
+.block { display: block; }
+.inline-block { display: inline-block; }
+.inline { display: inline; }
+.flex { display: flex; }
+
+.overflow-visible { overflow: visible; }
+.overflow-hidden { overflow: hidden; }
+
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+
+.center-h { position: relative; left: 50%; transform: translateX(-50%); }
+.center-v { position: relative; top: 50%; transform: translateY(-50%); }
+
+.op0 { opacity: 0; }
+.op1 { opacity: 1; }
+.vis-hide { visibility: hidden; }
+
+@for $i from 0 through $class-loop-max {
+    // Padding
+    .p#{$i} { padding: #{$i}px; }
+    .pt#{$i} { padding-top: #{$i}px; }
+    .pr#{$i} { padding-right: #{$i}px; }
+    .pb#{$i} { padding-bottom: #{$i}px; }
+    .pl#{$i} { padding-left: #{$i}px; }
+
+    // Margin
+    .m#{$i} { margin: #{$i}px; }
+    .mt#{$i} { margin-top: #{$i}px; }
+    .mr#{$i} { margin-right: #{$i}px; }
+    .mb#{$i} { margin-bottom: #{$i}px; }
+    .ml#{$i} { margin-left: #{$i}px; }
+
+    // Width and Height
+    .w#{$i} { width: #{$i}px; }
+    .h#{$i} { height: #{$i}px; }
+
+    // Absolute positions
+    .t#{$i} { top: #{$i}px; }
+    .r#{$i} { right: #{$i}px; }
+    .b#{$i} { bottom: #{$i}px; }
+    .l#{$i} { left: #{$i}px; }
+
+    // Padding %
+    .p#{$i}-per { padding: #{$i}#{"%"}; }
+    .pt#{$i}-per { padding-top: #{$i}#{"%"}; }
+    .pr#{$i}-per { padding-right: #{$i}#{"%"}; }
+    .pb#{$i}-per { padding-bottom: #{$i}#{"%"}; }
+    .pl#{$i}-per { padding-left: #{$i}#{"%"}; }
+
+    // Margin %
+    .m#{$i}-per { margin: #{$i}#{"%"}; }
+    .mt#{$i}-per { margin-top: #{$i}#{"%"}; }
+    .mr#{$i}-per { margin-right: #{$i}#{"%"}; }
+    .mb#{$i}-per { margin-bottom: #{$i}#{"%"}; }
+    .ml#{$i}-per { margin-left: #{$i}#{"%"}; }
+
+    // Width and Height %
+    .w#{$i}-per { width: #{$i}#{"%"}; }
+    .h#{$i}-per { height: #{$i}#{"%"}; }
+
+    // Absolute positions %
+    .t#{$i}-per { top: #{$i}#{"%"}; }
+    .r#{$i}-per { right: #{$i}#{"%"}; }
+    .b#{$i}-per { bottom: #{$i}#{"%"}; }
+    .l#{$i}-per { left: #{$i}#{"%"}; }
+
+    // Padding vw
+    .p#{$i}-vw { padding: #{$i}vw; }
+    .pt#{$i}-vw { padding-top: #{$i}vw; }
+    .pr#{$i}-vw { padding-right: #{$i}vw; }
+    .pb#{$i}-vw { padding-bottom: #{$i}vw; }
+    .pl#{$i}-vw { padding-left: #{$i}vw; }
+
+    // Margin vw
+    .m#{$i}-vw { margin: #{$i}vw; }
+    .mt#{$i}-vw { margin-top: #{$i}vw; }
+    .mr#{$i}-vw { margin-right: #{$i}vw; }
+    .mb#{$i}-vw { margin-bottom: #{$i}vw; }
+    .ml#{$i}-vw { margin-left: #{$i}vw; }
+
+    // Width and Height vw
+    .w#{$i}-vw { width: #{$i}vw; }
+    .h#{$i}-vw { height: #{$i}vw; }
+
+    // Absolute positions vw
+    .t#{$i}-vw { top: #{$i}vw; }
+    .r#{$i}-vw { right: #{$i}vw; }
+    .b#{$i}-vw { bottom: #{$i}vw; }
+    .l#{$i}-vw { left: #{$i}vw; }
+}
+
+
+
+//=============================================================================== [ General Styles ]
+//
+.pointer {
+    cursor: pointer;
+}
+
+.divider {
+    background-color: map-get($colors, lightgrey);
+
+    &.horizontal {
+        height: 2px;
+        width: 100%;
+    }
+
+    &.vertical {
+        width: 2px;
+        height: 100%;
+    }
+}
+
+.section-loader {
+    width: 100%;
+    height: 100%;
+
+    .spinner {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        --color: map-get($colors, primary);
+    }
+}
+
+.page-loader {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: map-get($colors, primary-light);
+    z-index: 1000;
+
+    .spinner {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        --color: map-get($colors, primary);
+    }
+}
+
+// clearfix
+.group:after {
+    visibility: hidden;
+    display: block;
+    content: "";
+    clear: both;
+    height: 0;
+}
+
+
+
+//=============================================================================== [ Button Styles ]
+//
+ion-button {
+    margin: 0;
+}
+
+.#{$prefix}-btn, .#{$prefix}-button {
+    width: 185px;
+    min-width: 185px;
+    height: 50px;
+    border-radius: 4px;
+    border: none;
+
+    @include font-btn;
+
+    background-color: map-get($colors, primary);
+    color: map-get($colors, light);
+
+    &.ghost {
+        background: none;
+        --background: none;
+        border: 2px solid map-get($colors, primary);
+        color: map-get($colors, primary);
+    }
+
+    &.inline {
+        width: 125px;
+        min-width: 150px;
+        height: 30px;
+        display: inline-block;
+        font-size: 14px;
+    }
+
+    &.thin {
+        height: 40px;
+    }
+
+    &.input-btn, &.input-button {
+        min-width: 40px;
+        height: 35px;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+        border: none;
+
+        i {
+            margin: auto;
+        }
+    }
+
+    i {
+        margin-right: 10px;
+        font-size: 14px;
+    }
+}
+
+button.#{$prefix}-btn.bg-primary:hover,
+button.#{$prefix}-button.bg-primary:hover {
+    background-color: map-get($colors, primary) !important;
+}
+
+button:disabled {
+    opacity: 50%;
+    cursor: not-allowed;
+    pointer-events: all !important;
+}
+
+
+
+//=============================================================================== [ Form Styles ]
+//
+.form-group {
+    margin-bottom: 40px;
+
+    &.compact {
+        margin-bottom: 20px;
+    }
+}
+
+.form-group:last-child {
+    margin-bottom: 0;
+}
+
+.required-field {
+    color: red;
+}
+
+ion-input {
+    margin: auto;
+}
+
+ion-checkbox {
+    margin-right: 10px;
+    float: left;
+}
+
+ion-label {
+    float: left;
+    transform: translateY(-1px);
+    padding: 0;
+    margin: 0;
+}
+
+input, ion-input, .#{$prefix}-input, ion-select, select {
+    width: 100%;
+    min-width: 100px;
+    height: 30px;
+    background: none;
+    border-bottom: 2px solid map-get($colors, lightgrey);
+    color: map-get($colors, dark);
+
+    @include font-body;
+}
+
+ion-select {
+    --padding-top: 0px;
+    --padding-start: 10px;
+}
+
+label, .#{$prefix}-lbl, .#{$prefix}-label {
+    @include font-bodybold;
+    color: map-get($colors, primary);
+}
+
+.input-feedback {
+    margin-top: 10px;
+    background-color: rgba(216, 99, 99, 0.831);
+    padding: 5px;
+    padding-left: 15px;
+    color: white;
+    font-size: 14px !important;
+    border-radius: 3px;
+
+    @include font-body;
+}
+
+.valid-styles.ng-dirty.ng-invalid {
+    border-color: rgba(216, 99, 99, 0.831);
+}
+
+.valid-styles.ng-dirty.ng-valid {
+    border-color: rgba(113, 216, 99, 0.831);
+}
+
+ngb-datepicker {
+    .ngb-dp-month {
+        margin: auto;
+    }
+}
+
+.form-control:focus {
+    box-shadow: none;
+    border-color: rgba(map-get($colors, primary), .6);
+
+    &.ng-dirty.ng-invalid {
+        border-color: rgba(216, 99, 99, 0.831);
+    }
+
+    &.ng-dirty.ng-valid {
+        border-color: rgba(113, 216, 99, 0.831);
+    }
+}
+
+// Drop zone upload
+$drop-zone-height: 175px;
+
+.upload-control {
+    .drop-zone {
+        border: 3px dashed #cecece !important;
+        border-radius: 7px !important;
+        min-height: $drop-zone-height;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    .drop-content {
+        .dc-pre {
+            i.upload-icon {
+                display: block;
+                text-align: center;
+                font-size: 20px;
+                color: rgba(map-get($colors, dark), .5);
+            }
+
+            p.upload-message {
+                margin: 0;
+                margin-top: 10px;
+                margin-bottom: 10px;
+                font-size: 16px;
+                font-weight: bold;
+                text-align: center;
+                color: rgba(map-get($colors, dark), .5);
+            }
+
+            p.upload-or {
+                margin: 0;
+                font-size: 14px;
+                font-weight: bold;
+                text-align: center;
+                color: rgba(map-get($colors, dark), .5);
+
+                span {
+                    display: inline-block;
+                    height: 2px;
+                    width: 10px;
+                    background-color: rgba(map-get($colors, dark), .2);
+                    transform: translateY(-2px);
+                }
+
+                span:first-child {
+                    margin-right: 5px;
+                }
+
+                span:last-child {
+                    margin-left: 5px;
+                }
+            }
+        }
+
+        & > div:last-child {
+            text-align: center;
+        }
+
+        .upload-btn {
+            width: 40%;
+            font-size: 14px;
+            height: 35px;
+            margin-top: 10px;
+            pointer-events: all;
+        }
+
+        p.over-message-valid {
+            margin: 0;
+            margin-top: calc((#{$drop-zone-height} / 2) - 32px);
+            font-size: 16px;
+            font-weight: bold;
+            text-align: center;
+            color: rgba(map-get($colors, dark), .5);
+        }
+
+        p.over-message-invalid {
+            margin: 0;
+            margin-top: calc((#{$drop-zone-height} / 2) - 32px);
+            font-size: 16px;
+            font-weight: bold;
+            text-align: center;
+            color: rgba(map-get($colors, dark), .5);
+        }
+
+        p.post-message {
+            margin: 0;
+            margin-top: calc((#{$drop-zone-height} / 3) - 32px);
+            font-size: 16px;
+            font-weight: bold;
+            text-align: center;
+            color: rgba(map-get($colors, dark), .5);
+            word-break: break-all;
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+
+        .dc-over {
+            display: none;
+        }
+
+        .dc-post {
+            display: block;
+        }
+    }
+
+    .drop-zone.ngx-file-drop__drop-zone--over {
+        background-color: rgba(map-get($colors, primary), .07);
+
+        .drop-content {
+            pointer-events: none;
+            
+            .dc-pre {
+                display: none;
+            }
+
+            & > div:last-child {
+                display: none;
+                pointer-events: none;
+            }
+
+            .upload-btn {
+                width: 40%;
+                font-size: 14px;
+                height: 35px;
+                margin-top: 10px;
+                pointer-events: none;
+            }
+
+            .dc-over {
+                display: block;
+            }
+
+            .dc-post {
+                display: none;
+            }
+        }
+    }
+}
+
+
+
+//=============================================================================== [ Data Table Styles ]
+//
+.ngx-datatable.bootstrap .datatable-body .datatable-body-row.datatable-row-even {
+    background-color: rgba(map-get($colors, primary), .03);
+} 
+
+.ngx-datatable .datatable-header-cell-label{
+    font-size: 14px !important;
+    font-weight: 900 !important;
+}
+
+.ngx-datatable .datatable-body-cell-label > span{
+    font-size: 12px !important;
+    font-weight: 400 !important;
+}
+
+.ngx-datatable.bootstrap .datatable-body .progress-linear {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 5px;
+    padding: 0;
+    margin: 0;
+    position: absolute;
+}
+
+.ngx-datatable.bootstrap .datatable-body .progress-linear .container {
+    display: block;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 5px;
+    -webkit-transform: translate(0, 0) scale(1, 1);
+    transform: translate(0, 0) scale(1, 1);
+    background-color: rgba(map-get($colors, primary), .03);
+}
+
+.ngx-datatable.bootstrap .datatable-body .progress-linear .container .bar {
+    transition: all .2s linear;
+    -webkit-animation: query 0.8s infinite cubic-bezier(0.39, 0.575, 0.565, 1);
+    animation: query 0.8s infinite cubic-bezier(0.39, 0.575, 0.565, 1);
+    transition: -webkit-transform .2s linear;
+    transition: transform .2s linear;
+    background-color: map-get($colors, primary);
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    height: 5px;
+}
+
+/**
+* Progress bar animations
+*/
+@keyframes query {
+    0% {
+        opacity: 1;
+        transform: translateX(35%) scale(0.3, 1);
+    }
+    100% {
+        opacity: 0;
+        transform: translateX(-50%) scale(0, 1);
+    }
+}
+
+.page-item.active .page-link{
+    background-color: map-get($colors, primary);
+    border-color: rgba(map-get($colors, primary), .03);
+}
+
+
+
+//=============================================================================== [ PDF Viewer Styles ]
+//
+pdf-viewer {
+    .ng2-pdf-viewer-container {
+        border-radius: 7px;
+
+        .pdfViewer {
+            padding-top: 5px;
+            padding-bottom: 5px;
+        }
+
+        .pdfViewer .page {
+            margin: auto !important;
+            margin-top: 10px !important;
+            border-radius: 7px;
+
+            .canvasWrapper {
+                border-radius: 7px;
+            }
+        }
+
+        .pdfViewer .page:first-child {
+            margin-top: 0px !important;
+        }
+    }
+}
+
+
+
+//=============================================================================== [ Generic Responsive Styles ]
+//
+@each $name, $value in $breakpoints {
+    @media screen and (max-width: #{$value}) {
+        .b#{name}-stack {
+            margin: 0;
+            width: 100%;
+        }
+
+        @for $i from 0 through $class-loop-max {
+            // Padding
+            .b#{name}-p#{$i} { padding: #{$i}px; }
+            .b#{name}-pt#{$i} { padding-top: #{$i}px; }
+            .b#{name}-pr#{$i} { padding-right: #{$i}px; }
+            .b#{name}-pb#{$i} { padding-bottom: #{$i}px; }
+            .b#{name}-pl#{$i} { padding-left: #{$i}px; }
+
+            // Margin
+            .b#{name}-m#{$i} { margin: #{$i}px; }
+            .b#{name}-mt#{$i} { margin-top: #{$i}px; }
+            .b#{name}-mr#{$i} { margin-right: #{$i}px; }
+            .b#{name}-mb#{$i} { margin-bottom: #{$i}px; }
+            .b#{name}-ml#{$i} { margin-left: #{$i}px; }
+
+            // Width and Height
+            .b#{name}-w#{$i} { width: #{$i}px; }
+            .b#{name}-h#{$i} { height: #{$i}px; }
+
+            // Absolute positions
+            .b#{name}-t#{$i} { top: #{$i}px; }
+            .b#{name}-r#{$i} { right: #{$i}px; }
+            .b#{name}-b#{$i} { bottom: #{$i}px; }
+            .b#{name}-l#{$i} { left: #{$i}px; }
+
+            // Padding %
+            .b#{name}-p#{$i}-per { padding: #{$i}#{"%"}; }
+            .b#{name}-pt#{$i}-per { padding-top: #{$i}#{"%"}; }
+            .b#{name}-pr#{$i}-per { padding-right: #{$i}#{"%"}; }
+            .b#{name}-pb#{$i}-per { padding-bottom: #{$i}#{"%"}; }
+            .b#{name}-pl#{$i}-per { padding-left: #{$i}#{"%"}; }
+
+            // Margin %
+            .b#{name}-m#{$i}-per { margin: #{$i}#{"%"}; }
+            .b#{name}-mt#{$i}-per { margin-top: #{$i}#{"%"}; }
+            .b#{name}-mr#{$i}-per { margin-right: #{$i}#{"%"}; }
+            .b#{name}-mb#{$i}-per { margin-bottom: #{$i}#{"%"}; }
+            .b#{name}-ml#{$i}-per { margin-left: #{$i}#{"%"}; }
+
+            // Width and Height %
+            .b#{name}-w#{$i}-per { width: #{$i}#{"%"}; }
+            .b#{name}-h#{$i}-per { height: #{$i}#{"%"}; }
+
+            // Absolute positions %
+            .b#{name}-t#{$i}-per { top: #{$i}#{"%"}; }
+            .b#{name}-r#{$i}-per { right: #{$i}#{"%"}; }
+            .b#{name}-b#{$i}-per { bottom: #{$i}#{"%"}; }
+            .b#{name}-l#{$i}-per { left: #{$i}#{"%"}; }
+
+            // Padding vw
+            .b#{name}-p#{$i}-vw { padding: #{$i}vw; }
+            .b#{name}-pt#{$i}-vw { padding-top: #{$i}vw; }
+            .b#{name}-pr#{$i}-vw { padding-right: #{$i}vw; }
+            .b#{name}-pb#{$i}-vw { padding-bottom: #{$i}vw; }
+            .b#{name}-pl#{$i}-vw { padding-left: #{$i}vw; }
+
+            // Margin vw
+            .b#{name}-m#{$i}-vw { margin: #{$i}vw; }
+            .b#{name}-mt#{$i}-vw { margin-top: #{$i}vw; }
+            .b#{name}-mr#{$i}-vw { margin-right: #{$i}vw; }
+            .b#{name}-mb#{$i}-vw { margin-bottom: #{$i}vw; }
+            .b#{name}-ml#{$i}-vw { margin-left: #{$i}vw; }
+
+            // Width and Height vw
+            .b#{name}-w#{$i}-vw { width: #{$i}vw; }
+            .b#{name}-h#{$i}-vw { height: #{$i}vw; }
+
+            // Absolute positions vw
+            .b#{name}-t#{$i}-vw { top: #{$i}vw; }
+            .b#{name}-r#{$i}-vw { right: #{$i}vw; }
+            .b#{name}-b#{$i}-vw { bottom: #{$i}vw; }
+            .b#{name}-l#{$i}-vw { left: #{$i}vw; }
+        }
+    }
+}
+
+
+
+//=============================================================================== [ Loader Styles ]
+//
+.lds-ellipsis {
+  display: inline-block;
+  position: relative;
+  width: 64px;
+  height: 64px;
+}
+
+.lds-ellipsis div {
+  position: absolute;
+  top: 27px;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: map-get($colors, accent);
+  animation-timing-function: cubic-bezier(0, 1, 1, 0);
+}
+
+.lds-ellipsis div:nth-child(1) {
+  left: 6px;
+  animation: lds-ellipsis1 0.6s infinite;
+}
+
+.lds-ellipsis div:nth-child(2) {
+  left: 6px;
+  animation: lds-ellipsis2 0.6s infinite;
+}
+
+.lds-ellipsis div:nth-child(3) {
+  left: 26px;
+  animation: lds-ellipsis2 0.6s infinite;
+}
+
+.lds-ellipsis div:nth-child(4) {
+  left: 45px;
+  animation: lds-ellipsis3 0.6s infinite;
+}
+
+@keyframes lds-ellipsis1 {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes lds-ellipsis3 {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+
+@keyframes lds-ellipsis2 {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(19px, 0);
+  }
+}
+
+
+
+//=============================================================================== [ Animations ]
+//
+.fade-in {
+  animation: fade-in-ani 0.6s;
+  animation-timing-function: ease-out;
+}
+
+@keyframes fade-in-ani {
+  0% {
+    opacity: 0;
+    transform: translateY(10%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}
+
+.scale-up-center {
+	-webkit-animation: scale-up-center 0.3s cubic-bezier(0.175, 0.885, 0.320, 1.275) both;
+	        animation: scale-up-center 0.3s cubic-bezier(0.175, 0.885, 0.320, 1.275) both;
+}
+
+@-webkit-keyframes scale-up-center {
+  0% {
+    -webkit-transform: scale(0.5);
+            transform: scale(0.5);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+@keyframes scale-up-center {
+  0% {
+    -webkit-transform: scale(0.5);
+            transform: scale(0.5);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+
+
